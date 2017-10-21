@@ -1,0 +1,41 @@
+<div id="page-container" class="page-container fade in page-sidebar-fixed page-header-fixed" [ngClass]="{
+    'page-sidebar-minified': page_sidebar_minified,
+    'page-content-full-height': page_content_full_height,
+    'page-with-wide-sidebar': page_with_wide_sidebar,
+    'page-with-light-sidebar': page_with_light_sidebar,
+    'page-without-sidebar': page_without_sidebar,
+    'page-with-two-sidebar': page_with_two_sidebar,
+    'page-with-right-sidebar': page_with_right_sidebar,
+    'page-with-top-menu': page_with_top_menu,
+    'page-boxed-layout': page_boxed_layout
+}">
+    <!-- This is the header that contains the logo and search/profile at the top right !-->
+    <header *ngIf="!this.page_without_header" [page_with_two_sidebar]="this.page_with_two_sidebar" [page_with_mega_menu]="this.page_with_mega_menu"></header>
+
+
+    <!-- This component creates an ugly top menu that goes under the header logo bar !-->
+    <!-- <top-menu *ngIf="this.page_with_top_menu"></top-menu> -->
+
+
+    <!-- This sidebar contains all the navigation to the rest of the app !-->
+    <sidebar *ngIf="!this.page_without_sidebar" [page_sidebar_transparent]="this.page_sidebar_transparent"></sidebar>
+
+
+    <!-- This is a side bar that can display graphs and other widgets/components !-->
+    <!-- <sidebar-two *ngIf="this.page_with_two_sidebar"></sidebar-two> !-->
+
+
+    <!-- the content component acts as a router to the rest of the app components !-->
+    <content [page_content_inverse_mode]="this.page_content_inverse_mode" [page_content_full_width]="this.page_content_full_width"></content>
+
+    <!-- footer is curently set to false, but it displays a line of text !-->
+    <!-- <footer *ngIf="this.page_with_footer"></footer> !-->
+    <footer></footer>
+
+    <!-- this is the theme toggle widget/component
+    <!-- <theme-panel></theme-panel> !-->
+
+    <!-- begin scroll to top btn -->
+    <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+    <!-- end scroll to top btn - -->
+</div>

@@ -1,0 +1,49 @@
+<!-- begin #sidebar -->
+<div id="sidebar" class="sidebar" [ngClass]="{'sidebar-transparent': page_sidebar_transparent}">
+    <!-- begin sidebar scrollbar -->
+    <div data-scrollbar="true" data-height="100%">
+        <!-- begin sidebar user -->
+        <!--
+        <ul class="nav">
+            <li class="nav-profile">
+                <div class="image">
+                    <a href="javascript:;"><img src="/assets/img/user-13.jpg" alt="" /></a>
+                </div>
+                <div class="info">
+                    Sean Ngu
+                    <small>Front end developer</small>
+                </div>
+            </li>
+        </ul>
+        !-->
+        <!-- end sidebar user -->
+
+        <ul class="nav">
+            <li *ngFor="let item of menu;" [ngClass]="{'has-sub': item.submenu}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a *ngIf="!item.link">
+                    <i *ngIf="item.icon" class="{{ item.icon }}"></i>
+                    <span>{{ item.title }}</span>
+                    <b *ngIf="item.caret" class="caret"></b>
+                </a>
+                <a *ngIf="item.link && !item.external && loggedIn" routerLink="{{ item.link }}">
+                    <i *ngIf="item.icon" class="{{ item.icon }}"></i>
+                    <span>{{ item.title }}</span>
+                    <b *ngIf="item.caret" class="caret"></b>
+                </a>
+                <ul *ngIf="item.submenu" class="sub-menu">
+                    <li *ngFor="let subitem of item.submenu" [ngClass]="{'has-sub': subitem.submenu}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <a *ngIf="subitem.link && !subitem.external" routerLink="{{ subitem.link }}">
+                            <b *ngIf="subitem.caret" class="caret pull-right"></b>
+                            {{ subitem.title }}
+                            <i *ngIf="subitem.highlight" class="fa fa-paper-plane text-theme m-l-5"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- end sidebar nav -->
+    </div>
+    <!-- end sidebar scrollbar -->
+</div>
+<div class="sidebar-bg"></div>
+<!-- end #sidebar -->

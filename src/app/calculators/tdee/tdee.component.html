@@ -1,0 +1,111 @@
+ <form [formGroup]="form" (ngSubmit)="onSubmitTDEE()">
+     <div class="form-group" style="color: white">
+         <div class="row row-space-10" style="color: white">
+             <div class="col-md-6 m-b-15" style="color: white">
+                 <label for="formAge" style="color: white">Age</label>
+                 <input
+                         placeholder="ex. 31"
+                         formControlName="formAge"
+                         id="formAge"
+                         type="number"
+                         class="form-control">
+                 <div
+                         *ngIf="formAge.touched && formAge.invalid"
+                         class="alert alert-danger">
+                     <div *ngIf="formAge.hasError('required')">An age is required</div>
+                     <div *ngIf="formAge.hasError('ageLessOrGreater')">Only enter ages 10+ or less than 100</div>
+                     <div *ngIf="formAge.hasError('cannotContainNonNumbers')">Only enter positive whole numbers</div>
+                     <div *ngIf="formAge.hasError('onlyContainsZero')">Only enter positive whole numbers</div>
+                 </div>
+             </div>
+
+             <div class="col-md-6 m-b-15">
+                 <label for="formAge" style="color: white">Gender</label>
+                 <select formControlName="formGender"
+                         id="formGender"
+                         class="form-control">
+                     <option *ngFor="let gender of Gender" [value]="gender.modifier"> {{gender.name}} </option>
+                 </select>
+             </div>
+
+         </div>
+     </div>
+
+     <div class="row row-space-10" style="color: white">
+         <div class="col-md-6 m-b-15" style="color: white">
+             <label for="formHeight" style="color: white">Height</label>
+             <input
+                     placeholder="ex. 76"
+                     formControlName="formHeight"
+                     id="formHeight"
+                     type="number"
+                     class="form-control">
+             <div
+                     *ngIf="formHeight.touched && formHeight.invalid"
+                     class="alert alert-danger">
+                 <div *ngIf="formHeight.hasError('required')">An height is required</div>
+                 <div *ngIf="formHeight.hasError('onlyContainsZero')">Only enter positive whole numbers</div>
+                 <div *ngIf="formHeight.hasError('cannotContainNonNumbers')">Only enter positive whole numbers</div>
+             </div>
+         </div>
+
+         <div class="col-md-6 m-b-15">
+             <label for="formHeight" style="color: white">Inch / CM</label>
+             <select formControlName="formHeightType"
+                     id="formHeightType"
+                     class="form-control">
+                 <option *ngFor="let height of heightType" [value]="height.modifier"> {{height.name}} </option>
+             </select>
+         </div>
+
+     </div>
+
+     <div class="row m-b-15" formGroupName="weightGroup">
+         <div class="col-md-6 col-xs-6">
+             <label class="form-input-title-w">Body Weight</label>
+             <input
+                     placeholder="ex. 185"
+                     formControlName="formWeight"
+                     id="formWeight"
+                     type="number"
+                     class="form-control">
+             <div
+                     *ngIf="formWeight.touched && formWeight.invalid"
+                     class="alert alert-danger">
+                 <div *ngIf="formWeight.hasError('required')">A weight is required</div>
+                 <div *ngIf="formWeight.hasError('cannotContainNonNumbers')">Only enter positive whole numbers</div>
+                 <div *ngIf="formWeight.hasError('onlyContainsZero')">Only enter positive whole numbers</div>
+             </div>
+         </div>
+
+         <div class="col-md-6 col-xs-6">
+             <label class="form-input-title-w">LBS / KGS</label>
+             <select formControlName="formWeightType"
+                     id="formWeightType"
+                     class="form-control">
+                 <option *ngFor="let weight of weightType" [value]="weight.modifier"> {{weight.name}} </option>
+             </select>
+         </div>
+     </div>
+
+     <div class="form-group">
+      <label for="formActivityLevel" class="form-input-title">Activity Level</label>
+      <select formControlName="formActivityLevel"
+              id="formActivityLevel"
+              class="form-control">
+        <option *ngFor="let method of listValues" [value]="method.modifier"> {{method.name}} </option>
+      </select>
+    </div>
+
+     <div class="alert alert-danger" *ngIf="form.get('weightGroup').touched && form.get('weightGroup').hasError('overWeightValue')">
+         Ensure the entered weight is no greater than 600lbs or 280kgs.
+     </div>
+     <div class="alert alert-danger" *ngIf="form.get('weightGroup').touched && form.get('weightGroup').hasError('underWeightValue')">
+         Ensure the entered weight is at least 30kgs or 65lbs.
+     </div>
+
+    <button
+            class="btn btn-success"
+            type="submit"
+            [disabled]="!form.valid">Calculate TDEE</button>
+  </form>

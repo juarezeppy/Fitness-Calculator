@@ -1,0 +1,362 @@
+<!-- begin breadcrumb -->
+
+<!--
+<ol class="breadcrumb pull-right">
+  <li><a href="javascript:;">Home</a></li>
+  <li><a href="javascript:;">Dashboard</a></li>
+  <li class="active">Dashboard v2</li>
+</ol>
+!-->
+
+<!-- end breadcrumb -->
+
+<!-- begin page-header -->
+<!--
+<h1 class="page-header">Dashboard v2 <small>header small text goes here...</small></h1>
+--!>
+<!-- end page-header -->
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h1 class="panel-title">Dashboard</h1>
+            </div>
+
+            <!-- begin panel !-->
+            <div class="panel-body" >
+                <!-- begin row -->
+                <div class="row">
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-xs-6">
+                        <div class="widget widget-stats bg-green">
+                            <div class="stats-icon stats-icon-lg"><i class="fa fa-globe fa-fw"></i></div>
+                            <div class="stats-title">BMI</div>
+                            <div class="stats-number">{{user.BMI}}</div>
+                            <div class="stats-progress progress">
+                                <div class="progress-bar" style="width: 70.1%;"></div>
+                            </div>
+                            <div class="stats-desc">Better than last week (70.1%)</div>
+                        </div>
+                    </div>
+                    <!-- end col-3 -->
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-xs-6">
+                        <div class="widget widget-stats bg-blue">
+                            <div class="stats-icon stats-icon-lg"><i class="fa fa-tags fa-fw"></i></div>
+                            <div class="stats-title">BMR</div>
+                            <div class="stats-number">{{user.BMR}}</div>
+                            <div class="stats-progress progress">
+                                <div class="progress-bar" style="width: 40.5%;"></div>
+                            </div>
+                            <div class="stats-desc">Better than last week (40.5%)</div>
+                        </div>
+                    </div>
+                    <!-- end col-3 -->
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-xs-6">
+                        <div class="widget widget-stats bg-purple">
+                            <div class="stats-icon stats-icon-lg"><i class="fa fa-shopping-cart fa-fw"></i></div>
+                            <div class="stats-title">TDEE</div>
+                            <div class="stats-number">{{user.TDEE}}</div>
+                            <div class="stats-progress progress">
+                                <div class="progress-bar" style="width: 76.3%;"></div>
+                            </div>
+                            <div class="stats-desc">Better than last week (76.3%)</div>
+                        </div>
+                    </div>
+                    <!-- end col-3 -->
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-xs-6">
+                        <div class="widget widget-stats bg-black">
+                            <div class="stats-icon stats-icon-lg"><i class="fa fa-comments fa-fw"></i></div>
+                            <div class="stats-title">NEW COMMENTS</div>
+                            <div class="stats-number">3,988</div>
+                            <div class="stats-progress progress">
+                                <div class="progress-bar" style="width: 54.9%;"></div>
+                            </div>
+                            <div class="stats-desc">Better than last week (54.9%)</div>
+                        </div>
+                    </div>
+                    <!-- end col-3 -->
+                </div>
+                <!-- end row -->
+
+                <!-- begin row -->
+                <div class="row">
+                    <!-- begin col-4 -->
+                    <div class="col-md-4">
+                        <!-- begin panel -->
+                        <div class="panel-2 panel-inverse" data-sortable-id="index-1">
+                            <div class="panel-heading">
+                                <div class="panel-heading-btn">
+                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                                </div>
+                                <h4 class="panel-title">Today's Workout</h4>
+                            </div>
+                            <div class="panel-body p-0">
+                                <ul>
+                                    <li class="li-styling">
+                                        <a class="row equal">
+                                            <div class="col-xs-1 check-box p-t-10">
+                                                <i class="fa fa-square-o"></i>
+                                            </div>
+                                            <div class="col-xs-8 li-element p-t-5">{{workout}}</div>
+                                            <div class="col-xs-3 li-element p-t-10 p-b-5 p-r-5"><button (click)="swap()" class="btn btn-xs btn-primary">Swap</button></div>
+                                        </a>
+                                    </li>
+                                    <li class="li-styling">
+                                        <a class="row equal">
+                                            <div class="col-xs-1 check-box p-t-10">
+                                                <i class="fa fa-square-o"></i>
+                                            </div>
+                                            <div class="col-xs-8 li-element p-t-5">Dumbell Shoulder Press 3X10 @35lbs</div>
+                                            <div class="col-xs-3 li-element p-t-10 p-b-5 p-r-5"><button class="btn btn-xs btn-primary">Swap</button></div>
+                                        </a>
+                                    </li>
+                                    <li class="li-styling">
+                                        <a class="row equal">
+                                            <div class="col-xs-1 check-box p-t-10">
+                                                <i class="fa fa-square-o"></i>
+                                            </div>
+                                            <div class="col-xs-8 li-element p-t-5">Pull Ups 4X10</div>
+                                            <div class="col-xs-3 li-element p-t-10 p-b-5 p-r-5"><button class="btn btn-xs btn-primary">Swap</button></div>
+                                        </a>
+                                    </li>
+                                    <li class="li-styling">
+                                        <a class="row equal">
+                                            <div class="col-xs-1 check-box p-t-10">
+                                                <i class="fa fa-square-o"></i>
+                                            </div>
+                                            <div class="col-xs-8 li-element p-t-5">Dips 4X12</div>
+                                            <div class="col-xs-3 li-element p-t-10 p-b-5 p-r-5"><button class="btn btn-xs btn-primary">Swap</button></div>
+                                        </a>
+                                    </li>
+                                    <li class="li-styling">
+                                        <a class="row equal">
+                                            <div class="col-xs-1 check-box p-t-10">
+                                                <i class="fa fa-square-o"></i>
+                                            </div>
+                                            <div class="col-xs-8 li-element p-t-5">Push Ups 30X5</div>
+                                            <div class="col-xs-3 li-element p-t-10 p-b-5 p-r-5"><button class="btn btn-xs btn-primary">Swap</button></div>
+                                        </a>
+                                    </li>
+                                    <li class="li-styling">
+                                        <a class="row equal">
+                                            <div class="col-xs-1 check-box p-t-10">
+                                                <i class="fa fa-square-o"></i>
+                                            </div>
+                                            <div class="col-xs-8 li-element p-t-5">Leg Levers 25X4</div>
+                                            <div class="col-xs-3 li-element p-t-10 p-b-5 p-r-5"><button class="btn btn-xs btn-primary">Swap</button></div>
+                                        </a>
+                                    </li>
+                                    <li class="li-styling">
+                                        <a class="row equal">
+                                            <div class="col-xs-1 check-box p-t-10">
+                                                <i class="fa fa-square-o"></i>
+                                            </div>
+                                            <div class="col-xs-8 li-element p-t-5">Crunches 30X3</div>
+                                            <div class="col-xs-3 li-element p-t-10 p-b-5 p-r-5"><button class="btn btn-xs btn-primary">Swap</button></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- end panel -->
+                    </div>
+                    <!-- end col-4 -->
+
+                    <!-- begin col-4 -->
+                    <div class="col-md-4">
+                        <!-- begin panel -->
+                        <div class="panel-2 panel-inverse" data-sortable-id="index-2">
+                            <div class="panel-heading">
+                                <div class="panel-heading-btn">
+                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                                </div>
+                                <h4 class="panel-title">Today's Meal Plan</h4>
+                            </div>
+                            <div class="panel-body p-0">
+                                <!--
+                                <ul class="todolist">
+                                    <li class="active">
+                                        <a href="javascript:;" class="todolist-container active" data-click="todolist">
+                                            <div class="todolist-input"><i class="fa fa-square-o"></i></div>
+                                            <div class="todolist-title">Donec vehicula pretium nisl, id lacinia nisl tincidunt id.</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" class="todolist-container" data-click="todolist">
+                                            <div class="todolist-input"><i class="fa fa-square-o"></i></div>
+                                            <div class="todolist-title">Duis a ullamcorper massa.</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" class="todolist-container" data-click="todolist">
+                                            <div class="todolist-input"><i class="fa fa-square-o"></i></div>
+                                            <div class="todolist-title">Phasellus bibendum, odio nec vestibulum ullamcorper.</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" class="todolist-container" data-click="todolist">
+                                            <div class="todolist-input"><i class="fa fa-square-o"></i></div>
+                                            <div class="todolist-title">Duis pharetra mi sit amet dictum congue.</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" class="todolist-container" data-click="todolist">
+                                            <div class="todolist-input"><i class="fa fa-square-o"></i></div>
+                                            <div class="todolist-title">Duis pharetra mi sit amet dictum congue.</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" class="todolist-container" data-click="todolist">
+                                            <div class="todolist-input"><i class="fa fa-square-o"></i></div>
+                                            <div class="todolist-title">Phasellus bibendum, odio nec vestibulum ullamcorper.</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" class="todolist-container active" data-click="todolist">
+                                            <div class="todolist-input"><i class="fa fa-square-o"></i></div>
+                                            <div class="todolist-title">Donec vehicula pretium nisl, id lacinia nisl tincidunt id.</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                !-->
+                                <ul>
+                                    <li class="li-styling">
+                                        <a class="row equal">
+                                            <div class="col-xs-1 check-box p-t-10">
+                                                <i class="fa fa-square-o"></i>
+                                            </div>
+                                            <div class="col-xs-8 li-element p-t-5">4oz (1 cup) of granola (100 cals)</div>
+                                            <div class="col-xs-3 li-element p-t-10 p-b-5 p-r-5"><button class="btn btn-xs btn-primary">Swap</button></div>
+                                        </a>
+                                    </li>
+                                    <li class="li-styling">
+                                        <a class="row equal">
+                                            <div class="col-xs-1 check-box p-t-10">
+                                                <i class="fa fa-square-o"></i>
+                                            </div>
+                                            <div class="col-xs-8 li-element p-t-5">Chicken Breast 8 ounces (250 calories)</div>
+                                            <div class="col-xs-3 li-element p-t-10 p-b-5 p-r-5"><button class="btn btn-xs btn-primary">Swap</button></div>
+                                        </a>
+                                    </li>
+                                    <li class="li-styling">
+                                        <a class="row equal">
+                                            <div class="col-xs-1 check-box p-t-10">
+                                                <i class="fa fa-square-o"></i>
+                                            </div>
+                                            <div class="col-xs-8 li-element p-t-5">Fruit 6 ounces (80 calories)</div>
+                                            <div class="col-xs-3 li-element p-t-10 p-b-5 p-r-5"><button class="btn btn-xs btn-primary">Swap</button></div>
+                                        </a>
+                                    </li>
+                                    <li class="li-styling">
+                                        <a class="row equal">
+                                            <div class="col-xs-1 check-box p-t-10">
+                                                <i class="fa fa-square-o"></i>
+                                            </div>
+                                            <div class="col-xs-8 li-element p-t-5">Asparagus 6 ounces (50 calories)</div>
+                                            <div class="col-xs-3 li-element p-t-10 p-b-5 p-r-5"><button class="btn btn-xs btn-primary">Swap</button></div>
+                                        </a>
+                                    </li>
+                                    <li class="li-styling">
+                                        <a class="row equal">
+                                            <div class="col-xs-1 check-box p-t-10">
+                                                <i class="fa fa-square-o"></i>
+                                            </div>
+                                            <div class="col-xs-8 li-element p-t-5">Granola 6 ounces (150 calories)</div>
+                                            <div class="col-xs-3 li-element p-t-10 p-b-5 p-r-5"><button class="btn btn-xs btn-primary">Swap</button></div>
+                                        </a>
+                                    </li>
+                                    <li class="li-styling">
+                                        <a class="row equal">
+                                            <div class="col-xs-1 check-box p-t-10">
+                                                <i class="fa fa-square-o"></i>
+                                            </div>
+                                            <div class="col-xs-8 li-element p-t-5">Protein Shake (200 calories)</div>
+                                            <div class="col-xs-3 li-element p-t-10 p-b-5 p-r-5"><button class="btn btn-xs btn-primary">Swap</button></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- end panel -->
+                    </div>
+                    <!-- end col-4 -->
+
+                    <!-- begin col-4 -->
+                    <div class="col-md-4"><!-- begin panel -->
+                        <!--
+                        <calendar></calendar>
+                        --!>
+                        <!-- end panel -->
+                    </div>
+                    <!-- end col-4 -->
+                </div>
+                <!-- end row -->
+
+                <!-- begin row -->
+                <!--
+                <div class="row m-t-20">
+                    <div class="col-md-8">
+                        <div class="widget-chart with-sidebar bg-black">
+                            <div class="widget-chart-content">
+                                <h4 class="chart-title">
+                                    Visitors Analytics
+                                    <small>Where do our visitors come from</small>
+                                </h4>
+                                <div id="visitors-line-chart" class="morris-inverse" style="height: 260px;"></div>
+                            </div>
+                            <div class="widget-chart-sidebar bg-black-darker">
+                                <div class="chart-number">
+                                    1,225,729
+                                    <small>visitors</small>
+                                </div>
+                                <div id="visitors-donut-chart" style="height: 160px"></div>
+                                <ul class="chart-legend">
+                                    <li><i class="fa fa-circle-o fa-fw text-success m-r-5"></i> 34.0% <span>New Visitors</span></li>
+                                    <li><i class="fa fa-circle-o fa-fw text-primary m-r-5"></i> 56.0% <span>Return Visitors</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel-2 panel-inverse" data-sortable-id="index-4">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    Visitors Origin
+                                </h4>
+                            </div>
+                            <div id="visitors-map" class="bg-black" style="height: 181px;"></div>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-inverse text-ellipsis">
+                                    <span class="badge badge-success">20.95%</span>
+                                    1. United State
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-inverse text-ellipsis">
+                                    <span class="badge badge-primary">16.12%</span>
+                                    2. India
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-inverse text-ellipsis">
+                                    <span class="badge badge-inverse">14.99%</span>
+                                    3. South Korea
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                !-->
+                <!-- end row -->
+            </div>
+            <!-- end panel !-->
+
+        </div>
+    </div>
+</div>

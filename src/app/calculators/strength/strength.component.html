@@ -1,0 +1,208 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h1 class="panel-title">Strength Calculators</h1>
+      </div>
+
+      <!-- begin panel !-->
+      <div class="panel-body" >
+        <div class="card-group">
+          <div class="row">
+            <!-- begin card -->
+            <div class="card col-md-6">
+              <app-lifts (messageEvent)="receiveMessage($event)"></app-lifts>
+            </div>
+            <!-- end card -->
+
+            <!-- begin card -->
+            <div class="card col-md-6">
+
+              <div *ngIf="!showGraph"  class="cardV2">
+                <div class="card-block text-left">
+
+                  <h3 class="card-title m-t-0 title-format2">
+                    Calculate & Compare Your Fitness!
+                  </h3>
+
+                  <p class="card-textV2 f-s-17">
+                    Enter your stats for any lift and we'll calculate then compare your
+                    entered <strong class="bold-color">1-Rep-Max</strong> to other lifters.
+                  </p>
+
+                  <p class="card-textV2 f-s-17">
+                    Don't know your <strong class="bold-color">1-Rep-Max</strong>? No problem.
+                    Simply enter the weight you lift with the number of reps and we'll calculate
+                    your estimated <strong class="bold-color">1-Rep-Max</strong> for you.
+                  </p>
+
+                </div>
+              </div>
+
+              <!-- lift info row -->
+              <div *ngIf="showGraph" class="row">
+                <div class="col-sm-4">
+                  <!-- begin card -->
+                  <div class="cardV2">
+                    <div class="card-block text-center">
+
+                      <h4 class="card-title m-t-0 title-format2">
+                        Your 1 Rep Max Is
+                      </h4>
+
+                      <p class="card-textV2">
+                        <br>
+                        <strong class="bold-color f-s-18">{{userMax}}Kg</strong>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- end card -->
+                </div>
+                <div class="col-sm-4">
+                  <!-- begin card -->
+                  <div class="cardV2">
+                    <div class="card-block text-center">
+
+                      <h4 class="card-title m-t-0 title-format2">
+                        You're Stronger Than
+                      </h4>
+
+                      <p class="card-textV2 f-s-17">
+                        <strong class="bold-color f-s-18">{{message}}%</strong> of the people in your lift category
+                      </p>
+                    </div>
+                  </div>
+                  <!-- end card -->
+                </div>
+                <div class="col-sm-4">
+                  <!-- begin card -->
+                  <div class="cardV2">
+                    <div class="card-block text-center">
+
+                      <h4 class="card-title m-t-0 title-format2">
+                        You're Lift is
+                      </h4>
+
+                      <p class="card-textV2 f-s-17">
+                        <strong class="bold-color f-s-18">{{liftRatio}}</strong> times your bodyweight
+                      </p>
+                    </div>
+                  </div>
+                  <!-- end card -->
+                </div>
+              </div>
+              <!-- end lift info -->
+
+              <!-- begin table -->
+              <table *ngIf="showGraph" class="table">
+                <thead class="table-title">
+                <tr>
+                  <th class="text-center"># Lifters in Category</th>
+                  <th class="text-center">AVG in Category</th>
+                  <th class="text-center">Max Lifted in Category</th>
+                </tr>
+                </thead>
+                <tbody class="table-row">
+                <tr class="success text-center">
+                  <td style="  border-right: 1px solid darkgrey"><strong>{{iterations}}</strong></td>
+                  <td style="  border-right: 1px solid darkgrey"><strong>{{mean}}Kg</strong></td>
+                  <td><strong>{{biggestLift}}Kg</strong></td>
+                </tr>
+                </tbody>
+              </table>
+              <!-- end table -->
+
+              <!-- collapsable info -->
+              <div *ngIf="showGraph" class="row m-0">
+                <div class="panel panel-success overflow-hidden">
+                  <div class="panel-heading">
+                    <h5 class="panel-title f-s-15">
+                      <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#CollapseAgeGroups">
+                        <i class="caret pull-right"></i>
+                        View Age & Height Categories
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="CollapseAgeGroups" class="panel-collapse collapse">
+                    <div class="panel-2 text-inverse text-left">
+                      <table class="table table-bordered">
+                        <tbody>
+                        <tr>
+                          <td class="text-center">Age Group 1</td>
+                          <td class="tableDivider">18 & Under</td>
+                          <td class="text-center">Weight Group 1</td>
+                          <td>Under 175lbs</td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">Age Group 2</td>
+                          <td class="tableDivider">19-23</td>
+                          <td class="text-center">Weight Group 2</td>
+                          <td>Under 175lbs</td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">Age Group 3</td>
+                          <td class="tableDivider">24-39</td>
+                          <td class="text-center">Weight Group 3</td>
+                          <td>Under 175lbs</td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">Age Group 4</td>
+                          <td class="tableDivider">40-49</td>
+                          <td class="text-center">Weight Group 4</td>
+                          <td>Under 175lbs</td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">Age Group 5</td>
+                          <td class="tableDivider">50-59</td>
+                          <td class="text-center">Weight Group 5</td>
+                          <td>Under 175lbs</td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">Age Group 6</td>
+                          <td class="tableDivider">60-65</td>
+                          <td class="text-center">Weight Group 6</td>
+                          <td>Under 175lbs</td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">Age Group 7</td>
+                          <td class="tableDivider">66-70</td>
+                          <td class="text-center">Weight Group 7</td>
+                          <td>Under 175lbs</td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">Age Group 8</td>
+                          <td class="tableDivider">Over 70</td>
+                          <td class="text-center">Weight Group 8</td>
+                          <td>Under 175lbs</td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapsables -->
+
+            </div>
+            <!-- end card -->
+
+          </div>
+        </div>
+
+        <!-- begin chart !-->
+        <div class="row">
+          <app-histogram-chart *ngIf="showGraph"
+                    [isStrength]="true"
+                    [gender]="gender"
+                    [formType]="formType"
+                    [userFormValue]="userMax"></app-histogram-chart>
+        </div>
+        <!-- end chart !-->
+
+      </div>
+      <!-- end panel !-->
+
+
+    </div>
+  </div>
+</div>

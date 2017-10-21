@@ -1,0 +1,13 @@
+<div class="login-cover" STYLE="z-index: -1">
+    <div class="login-cover-image"><img src="../../../../assets/img/login-bg/bg-3.jpg" data-id="login-cover-image" alt="" /></div>
+    <div class="login-cover-bg"></div>
+</div>
+
+<!-- begin #content -->
+<div id="content" class="content" [ngClass]="{
+    'content-full-width': page_content_full_width,
+    'content-inverse-mode': page_content_inverse_mode
+}">
+    <router-outlet></router-outlet>
+</div>
+<!-- end #content -->

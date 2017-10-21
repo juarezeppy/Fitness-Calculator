@@ -1,0 +1,20 @@
+<div class="panel panel-inverse">
+  <div class="panel-heading">
+    <h4 class="panel-title">Your Stats In: {{chartName | uppercase }}</h4>
+  </div>
+  <div class="panel-body dark" style="height: 350px; max-height: 350px;">
+    <ngx-charts-bar-vertical [scheme]="colorScheme2"
+                             [results]="chartData"
+                             [gradient]="gradient"
+                             [xAxis]="showXAxis"
+                             [yAxis]="showYAxis"
+                             [legend]="showLegend"
+                             [showXAxisLabel]="showXAxisLabel"
+                             [showYAxisLabel]="showYAxisLabel"
+                             [showGridLines]="false"
+                             [xAxisLabel]="xAxisLabel"
+                             [yAxisLabel]="yAxisLabel"
+                             (select)="onSelect($event)">
+    </ngx-charts-bar-vertical>
+  </div>
+</div>

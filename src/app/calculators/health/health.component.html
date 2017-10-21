@@ -1,0 +1,257 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h1 class="panel-title">Fitness Calculators</h1>
+      </div>
+
+      <div class="panel-body" >
+          <!-- begin card-group -->
+          <div class="card-group">
+            <div class="row">
+
+              <!-- begin card --> <!-- Broken due to card group and column within column... results in 6x6-->
+              <div class="card col-md-6 col-sm-6">
+                <ul class="nav nav-tabs">
+                  <li class="active">
+                    <a href="#default-tab-1" data-toggle="tab">
+                      <span class="visible-xs visible-sm visible-md"><b>Overview</b></span>
+                      <span class="hidden-xs hidden-sm hidden-md"><b>Overview</b></span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#default-tab-2" data-toggle="tab">
+                      <span class="visible-xs visible-sm visible-md"><b>BMI</b></span>
+                      <span class="hidden-xs hidden-sm hidden-md"><b>Body Mass</b></span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#default-tab-3" data-toggle="tab">
+                      <span class="visible-xs visible-sm visible-md"><b>BMR</b></span>
+                      <span class="hidden-xs hidden-sm hidden-md"><b>Basal Metabolic Rate</b></span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#default-tab-4" data-toggle="tab">
+                      <span class="visible-xs visible-sm visible-md"><b>TDEE</b></span>
+                      <span class="hidden-xs hidden-sm hidden-md"><b>TDEE</b></span>
+                    </a>
+                  </li>
+                </ul>
+                <div class="tab-content" style="background-color: transparent">
+                  <div class="tab-pane fade active in" id="default-tab-1">
+                    <img class="card-img-top" src="./../../../assets/img/gallery/gallery-3.jpg" alt="Card image cap" />
+                    <h2 class="health-title"><u>Understanding Health Calculators</u></h2>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor,
+                      est diam sagittis orci, a ornare nisi quam elementum tortor. Proin interdum ante porta est convallis
+                      dapibus dictum in nibh. Aenean quis massa congue metus mollis fermentum eget et tellus.
+                      Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, nec eleifend orci eros id lectus.
+                    </p>
+                  </div>
+                  <div class="tab-pane fade" id="default-tab-2">
+                    <img class="card-img-top" src="./../../../assets/img/gallery/gallery-3.jpg" alt="Card image cap" />
+                    <h2 class="health-title"><u>Body Mass Index</u></h2>
+                    <p>
+                      Nullam ac sapien justo. Nam augue mauris, malesuada non magna sed, feugiat blandit ligula.
+                      In tristique tincidunt purus id iaculis. Pellentesque volutpat tortor a mauris convallis,
+                      sit amet scelerisque lectus adipiscing.
+
+                      <app-bmi (messageEvent)="receiveMessage($event)"></app-bmi>
+                    </p>
+                  </div>
+                  <div class="tab-pane fade" id="default-tab-3">
+                    <img class="card-img-top" src="./../../../assets/img/gallery/gallery-6.jpg" alt="Card image cap" />
+                    <h2 class="health-title"><u>Basal Metabolic Rate</u></h2>
+                    <p style="text-align: left">
+                      Praesent tincidunt nulla ut elit vestibulum viverra. Sed placerat magna eget eros accumsan elementum.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis lobortis neque.
+                      Maecenas justo odio, bibendum fringilla quam nec, commodo rutrum quam.
+                      Donec cursus erat in lacus congue sodales. Nunc bibendum id augue sit amet placerat.
+                      Quisque et quam id felis tempus volutpat at at diam. Vivamus ac diam turpis.Sed at lacinia augue.
+                      Nulla facilisi. Fusce at erat suscipit, dapibus elit quis, luctus nulla.
+                      Quisque adipiscing dui nec orci fermentum blandit.
+                      Sed at lacinia augue. Nulla facilisi. Fusce at erat suscipit, dapibus elit quis, luctus nulla.
+                      Quisque adipiscing dui nec orci fermentum blandit.
+
+                      <app-bmr (messageEvent)="receiveMessage($event)"></app-bmr>
+                    </p>
+                  </div>
+                  <div class="tab-pane fade" id="default-tab-4">
+                    <img class="card-img-top" src="./../../../assets/img/gallery/gallery-4.jpg" alt="Card image cap" />
+                    <h2 class="health-title"><u>Total Daily Energy Expenditure</u></h2>
+                    <p>
+                      Praesent tincidunt nulla ut elit vestibulum viverra. Sed placerat magna eget eros accumsan elementum.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis lobortis neque.
+                      Maecenas justo odio, bibendum fringilla quam nec, commodo rutrum quam.
+                      Donec cursus erat in lacus congue sodales. Nunc bibendum id augue sit amet placerat.
+                      Quisque et quam id felis tempus volutpat at at diam. Vivamus ac diam turpis.Sed at lacinia augue.
+                      Nulla facilisi. Fusce at erat suscipit, dapibus elit quis, luctus nulla.
+                      Quisque adipiscing dui nec orci fermentum blandit.
+                      Sed at lacinia augue. Nulla facilisi. Fusce at erat suscipit, dapibus elit quis, luctus nulla.
+                      Quisque adipiscing dui nec orci fermentum blandit.
+
+                      <app-tdee (messageEvent)="receiveMessage($event)"></app-tdee>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- end card -->
+
+              <!-- begin card -->
+              <div class="card col-md-6 col-sm-6">
+
+                <div *ngIf="!showGraph" class="cardV2">
+                  <div class="card-block text-left">
+
+                    <h3 class="card-title m-t-0 title-format2">
+                      Calculate & Compare Your Fitness!
+                    </h3>
+
+                    <p class="card-textV2 f-s-17">
+                      Enter your stats for any health calculator and we'll calculate then compare your
+                      results with other users.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- collapsable info -->
+                <div *ngIf="showGraph" class="row m-0">
+                  <div class="panel panel-success overflow-hidden">
+                    <div class="panel-heading">
+                      <h5 class="panel-title f-s-15">
+                        <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#CollapseAgeGroups">
+                          <i class="caret pull-right"></i>
+                          View Age & Height Categories
+                        </a>
+                      </h5>
+                    </div>
+                    <div id="CollapseAgeGroups" class="panel-collapse collapse">
+                      <div class="panel-2 text-inverse text-left">
+                        <table class="table table-bordered">
+                          <tbody>
+                          <tr>
+                            <td class="text-center">Age Group 1</td>
+                            <td class="tableDivider">18 & Under</td>
+                            <td class="text-center">Height Group 1</td>
+                            <td>Under 60 inches</td>
+                          </tr>
+                          <tr>
+                            <td class="text-center">Age Group 2</td>
+                            <td class="tableDivider">19-23</td>
+                            <td class="text-center">Height Group 2</td>
+                            <td>Under 60 inches</td>
+                          </tr>
+                          <tr>
+                            <td class="text-center">Age Group 3</td>
+                            <td class="tableDivider">24-39</td>
+                            <td class="text-center">Height Group 3</td>
+                            <td>Under 60 inches</td>
+                          </tr>
+                          <tr>
+                            <td class="text-center">Age Group 4</td>
+                            <td class="tableDivider">40-49</td>
+                            <td class="text-center">Height Group 4</td>
+                            <td>Under 60 inches</td>
+                          </tr>
+                          <tr>
+                            <td class="text-center">Age Group 5</td>
+                            <td class="tableDivider">50-59</td>
+                            <td class="text-center">Height Group 5</td>
+                            <td>Under 60 inches</td>
+                          </tr>
+                          <tr>
+                            <td class="text-center">Age Group 6</td>
+                            <td class="tableDivider">60-65</td>
+                            <td class="text-center">Height Group 6</td>
+                            <td>Under 60 inches</td>
+                          </tr>
+                          <tr>
+                            <td class="text-center">Age Group 7</td>
+                            <td class="tableDivider">66-70</td>
+                            <td class="text-center">Height Group 7</td>
+                            <td>Under 60 inches</td>
+                          </tr>
+                          <tr>
+                            <td class="text-center">Age Group 8</td>
+                            <td class="tableDivider">Over 70</td>
+                            <td class="text-center">Height Group 8</td>
+                            <td>Under 60 inches</td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end collapsables -->
+
+                <div *ngIf="showGraph" class="row">
+                  <div class="col-sm-6">
+                    <!-- begin card -->
+                    <div class="cardV2">
+                      <div class="card-block text-center">
+
+                        <h4 class="card-title m-t-0 title-format2">
+                          You're {{type}} Is
+                        </h4>
+
+                        <p class="card-textV2 f-s-17">
+                          <strong class="bold-color f-s-18">{{message}}</strong>
+                        </p>
+                      </div>
+                    </div>
+                    <!-- end card -->
+                  </div>
+                  <div class="col-sm-6">
+                    <!-- begin card -->
+                    <div class="cardV2">
+                      <div class="card-block text-center">
+
+                        <h4 class="card-title m-t-0 title-format2">
+                          You Fall Within
+                        </h4>
+
+                        <p class="card-textV2 f-s-17">
+                          <strong class="bold-color f-s-18">{{percentile}} Percentile</strong> in your category
+                        </p>
+                      </div>
+                    </div>
+                    <!-- end card -->
+                  </div>
+                </div>
+
+                <!-- begin panel -->
+                <table *ngIf="showGraph" class="table">
+                  <thead class="table-title">
+                  <tr>
+                    <th class="text-center"># Users in Category</th>
+                    <th class="text-center">AVG in Category</th>
+                  </tr>
+                  </thead>
+                  <tbody class="table-row">
+                  <tr class="success text-center">
+                    <td style="  border-right: 1px solid darkgrey"><strong>{{iterations}}</strong></td>
+                    <td style="  border-right: 1px solid darkgrey"><strong>{{mean}}</strong></td>
+                  </tr>
+                  </tbody>
+                </table>
+                <!-- end panel -->
+              </div>
+              <!-- end card -->
+            </div>
+          </div>
+        <!-- end card-group -->
+
+          <div class="row">
+            <app-histogram-chart *ngIf="showGraph"
+                      [isStrength]="false"
+                      [gender]="gender"
+                      [userFormValue]="message"
+                      [formType]="formType"></app-histogram-chart>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

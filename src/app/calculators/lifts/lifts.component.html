@@ -1,0 +1,156 @@
+<div class="col-sm-12 text-left">
+  <form [formGroup]="form" (ngSubmit)="onSubmitLift()">
+
+    <div class="form-group">
+      <div class="row row-space-10">
+        <div class="col-md-6 col-xs-6 m-b-15">
+          <label for="formAge" class="form-input-title-w">Age</label>
+          <input
+                  placeholder="ex. 31"
+                  formControlName="formAge"
+                  id="formAge"
+                  type="number"
+                  value=""
+                  class="form-control">
+          <div
+                  *ngIf="formAge.touched && formAge.invalid"
+                  class="alert alert-danger">
+            <div *ngIf="formAge.hasError('required')">An age is required</div>
+            <div *ngIf="formAge.hasError('cannotContainNonNumbers')">Only enter positive whole numbers</div>
+            <div *ngIf="formAge.hasError('onlyContainsZero')">Only enter positive whole numbers</div>
+            <div *ngIf="formAge.hasError('ageLessOrGreater')">Only enter ages 10+ or less than 100</div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xs-6 m-b-15">
+          <label for="formAge" class="form-input-title-w">Gender</label>
+          <select formControlName="formGender"
+                  id="formGender"
+                  class="form-control">
+            <option *ngFor="let gender of Gender" [value]="gender.modifier"> {{gender.name}} </option>
+          </select>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <div class="row row-space-10">
+        <div class="col-md-12 m-b-5">
+
+          <div class="row" formGroupName="weightGroup">
+            <div class="col-md-6 col-xs-6">
+            <label class="form-input-title-w">Body Weight</label>
+            <input
+                    placeholder="ex. 185"
+                    formControlName="formWeight"
+                    id="formWeight"
+                    type="number"
+                    class="form-control">
+            <div
+                    *ngIf="formWeight.touched && formWeight.invalid"
+                    class="alert alert-danger">
+              <div *ngIf="formWeight.hasError('required')">A weight is required</div>
+              <div *ngIf="formWeight.hasError('cannotContainNonNumbers')">Only enter positive whole numbers</div>
+              <div *ngIf="formWeight.hasError('onlyContainsZero')">Only enter positive whole numbers</div>
+            </div>
+            </div>
+
+              <div class="col-md-6 col-xs-6">
+              <label class="form-input-title-w">LBS / KGS</label>
+              <select formControlName="formWeightType"
+                      id="formWeightType"
+                      class="form-control">
+                <option *ngFor="let weight of weightType" [value]="weight.modifier"> {{weight.name}} </option>
+              </select>
+            </div>
+          </div>
+            <div class="alert alert-danger" *ngIf="form.get('weightGroup').touched && form.get('weightGroup').hasError('overWeightValue')">
+              Ensure the entered weight is no greater than 600lbs or 280kgs.
+            </div>
+          <div class="alert alert-danger" *ngIf="form.get('weightGroup').touched && form.get('weightGroup').hasError('underWeightValue')">
+            Ensure the entered weight is at least 30kgs or 65lbs.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="formLift" class="form-input-title-w">Exercise</label>
+      <select formControlName="formLift"
+            id="formLift"
+            class="form-control">
+        <optgroup  label="Barbell">
+          <option *ngFor="let exercise of barbellExercises" [value]="exercise.modifier"> {{exercise.name}} </option>
+        </optgroup>
+        <optgroup  label="Olympic">
+          <option *ngFor="let exercise of olympicExercises" [value]="exercise.modifier"> {{exercise.name}} </option>
+        </optgroup>
+        <optgroup  label="Bodyweight">
+          <option *ngFor="let exercise of bodyweightExercises" [value]="exercise.modifier"> {{exercise.name}} </option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="form-group">
+    <div class="row row-space-10">
+    <div class="col-md-6 col-xs-6 m-b-15">
+      <label for="formLiftWeight" class="form-input-title-w">Lift Weight</label>
+      <input
+              placeholder="ex. 225"
+              formControlName="formLiftWeight"
+              id="formLiftWeight"
+              type="number"
+              class="form-control">
+      <div
+              *ngIf="formLiftWeight.touched && formLiftWeight.invalid"
+              class="alert alert-danger">
+        <div *ngIf="formLiftWeight.hasError('required')">A weight is required</div>
+        <div *ngIf="formLiftWeight.hasError('cannotContainNonNumbers')">Only enter positive whole numbers</div>
+        <div *ngIf="formLiftWeight.hasError('onlyContainsZero')">Only enter positive whole numbers</div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xs-6 m-b-15">
+      <label for="formLiftWeight" class="form-input-title-w">LBS / KGS</label>
+      <select formControlName="formLiftWeightType"
+              id="formLiftWeightType"
+              class="form-control">
+          <option *ngFor="let weight of weightType" [value]="weight.modifier"> {{weight.name}} </option>
+      </select>
+    </div>
+
+    </div>
+    </div>
+
+    <div class="form-group">
+      <label for="formRepetitions" class="form-input-title-w">Repetitions</label>
+      <input
+            placeholder="ex. 5"
+            formControlName="formRepetitions"
+            id="formRepetitions"
+            type="number"
+            class="form-control">
+      <div
+            *ngIf="formRepetitions.touched && formRepetitions.invalid"
+            class="alert alert-danger">
+        <div *ngIf="formRepetitions.hasError('required')">A number of repetitions is required</div>
+        <div *ngIf="formRepetitions.hasError('max')">Only enter reps between 1-15</div>
+        <div *ngIf="formRepetitions.hasError('cannotContainNonNumbers')">Only enter positive whole numbers</div>
+        <div *ngIf="formRepetitions.hasError('onlyContainsZero')">Only enter positive whole numbers</div>
+
+      </div>
+    </div>
+
+    <div align="center">
+    <button
+            class="btn btn-success"
+            [disabled]="!form.valid">Submit</button>
+    </div>
+  </form>
+</div>
+
+
