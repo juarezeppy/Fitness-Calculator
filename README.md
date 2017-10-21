@@ -1,6 +1,7 @@
 # Project Overview
 
-**Note: To run this app you'll need to create your own firebaseConfig.ts file and nosql schema.** See the projects gitIgnore file for directory.
+**Note: To run this app you'll need to create your own firebaseConfig.ts file and nosql schema.** 
+See the project's gitIgnore file for directory.
 
 Buddy Up is a health and fitness calculator feature. Users can login to view their fitness dashboard (in progress) or simply toggle though the calculators and enter their data and calculate their bmi, bmr, tdee, or 1 rep max for a set of excercies. Their results are displayed in text boxes AND in a histogram chart against other user data in the database.
 
