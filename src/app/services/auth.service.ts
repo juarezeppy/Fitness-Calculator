@@ -90,7 +90,7 @@ export class AuthService {
 
             console.log('fb object' , result);
             // console.log('user profile id' , result.additionalUserInfo.profile.id);
-            console.log('getIdToken' , firebase.auth().currentUser.getIdToken());
+            // console.log('getIdToken' , firebase.auth().currentUser.getIdToken());
             // console.log('uid', result.credential.accessToken);
 
             this.userID = result.user.uid;
