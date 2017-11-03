@@ -1,7 +1,5 @@
 # Project Overview
 
-**DEMO:**  https://firstproject-65ff8.firebaseapp.com
-
 **Note: To run this app you'll need to create your own firebaseConfig.ts file and nosql schema.** 
 See the project's gitIgnore file for directory.
 
