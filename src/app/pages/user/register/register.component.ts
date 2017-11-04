@@ -65,8 +65,9 @@ export class RegisterComponent implements OnInit {
     }
 
     signUp() {
-        // Remember to fix First/Last name space issues 'John' instead of '     John  ' <-- space issue
-        this.authService.signupUserEP(this.formFirstName.value, this.formLastName.value, this.formEmail.value, this.formPassWord.value);
+        this.authService.signupUserEP(
+            this.formFirstName.value.trim(), this.formLastName.value.trim(),
+            this.formEmail.value, this.formPassWord.value);
     }
 
     fbSignUp() {
