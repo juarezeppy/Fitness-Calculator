@@ -17,14 +17,6 @@
     <!-- <top-menu *ngIf="this.page_with_top_menu"></top-menu> -->
 
 
-    <!-- This sidebar contains all the navigation to the rest of the app !-->
-    <sidebar *ngIf="!this.page_without_sidebar" [page_sidebar_transparent]="this.page_sidebar_transparent"></sidebar>
-
-
-    <!-- This is a side bar that can display graphs and other widgets/components !-->
-    <!-- <sidebar-two *ngIf="this.page_with_two_sidebar"></sidebar-two> !-->
-
-
     <!-- the content component acts as a router to the rest of the app components !-->
     <content [page_content_inverse_mode]="this.page_content_inverse_mode" [page_content_full_width]="this.page_content_full_width"></content>
 

@@ -85,20 +85,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // src/index.ts
 const functions = __webpack_require__(0);
 const admin = __webpack_require__(1);
-const HelloWorld = __webpack_require__(3);
-const LiftSums = __webpack_require__(4);
-const LiftSumsUnverifiedBench = __webpack_require__(5);
-const LiftSumsUnverifiedSquat = __webpack_require__(6);
-const LiftSumsUnverifiedFrontSquat = __webpack_require__(7);
-const LiftSumsUnverifiedDeadlift = __webpack_require__(8);
-const LiftSumsUnverifiedClean = __webpack_require__(9);
-const LiftSumsUnverifiedPowerClean = __webpack_require__(10);
-const HealthSumsUnverifiedBMI = __webpack_require__(11);
-const HealthSumsUnverifiedBMR = __webpack_require__(12);
-const HealthSumsUnverifiedTDEE = __webpack_require__(13);
+const LiftSums = __webpack_require__(3);
+const LiftSumsUnverifiedBench = __webpack_require__(4);
+const LiftSumsUnverifiedSquat = __webpack_require__(5);
+const LiftSumsUnverifiedFrontSquat = __webpack_require__(6);
+const LiftSumsUnverifiedDeadlift = __webpack_require__(7);
+const LiftSumsUnverifiedClean = __webpack_require__(8);
+const LiftSumsUnverifiedPowerClean = __webpack_require__(9);
+const HealthSumsUnverifiedBMI = __webpack_require__(10);
+const HealthSumsUnverifiedBMR = __webpack_require__(11);
+const HealthSumsUnverifiedTDEE = __webpack_require__(12);
 admin.initializeApp(functions.config().firebase);
-exports.helloWorld = HelloWorld.listener;
 exports.liftSums = LiftSums.listener;
+// NOTE: These functions / listeners are time and are not to scale.
+// I decided to leave it as is due to readability and from having over 2 dozen files, one for each function
+// When the time comes I would break down the for loop to a more scalable solution as a create additional files
 exports.liftSumsUnverifiedBench = LiftSumsUnverifiedBench.listener;
 exports.liftSumsUnverifiedSquat = LiftSumsUnverifiedSquat.listener;
 exports.liftSumsUnverifiedFrontSquat = LiftSumsUnverifiedFrontSquat.listener;
@@ -112,20 +113,6 @@ exports.healthSumsUnverifiedTDEE = HealthSumsUnverifiedTDEE.listener;
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-// src/add-message/index.ts
-const functions = __webpack_require__(0);
-exports.listener = exports.helloWorld = functions.https.onRequest((request, response) => {
-    response.send('Hello from Firebase!');
-});
-
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -178,7 +165,7 @@ exports.listener = exports.liftSum = functions.https
 
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -193,6 +180,9 @@ exports.listener = exports.liftSumsUnverifiedBench = functions.https
         'ageGroup4', 'ageGroup5', 'ageGroup6', 'ageGroup7', 'ageGroup8'];
     const weightGroups = ['weightGroup1', 'weightGroup2', 'weightGroup3',
         'weightGroup4', 'weightGroup5', 'weightGroup6', 'weightGroup7', 'weightGroup8'];
+    // NOTE: These functions / listeners are time and are not to scale.
+    // I decided to leave it as is due to readability and from having over 2 dozen files, one for each function
+    // When the time comes I would break down the for loop to a more scalable solution as a create additional files
     for (let i = 0; i < sexGroups.length; i++) {
         for (let j = 0; j < ageGroups.length; j++) {
             for (let k = 0; k < weightGroups.length; k++) {
@@ -308,38 +298,8 @@ exports.listener = exports.liftSumsUnverifiedBench = functions.https
                         else if (lifts[index] >= 230 && lifts[index] < 240) {
                             liftColumns[18]++;
                         }
-                        else if (lifts[index] >= 240 && lifts[index] < 250) {
-                            liftColumns[19]++;
-                        }
-                        else if (lifts[index] >= 250 && lifts[index] < 260) {
-                            liftColumns[20]++;
-                        }
-                        else if (lifts[index] >= 260 && lifts[index] < 270) {
-                            liftColumns[21]++;
-                        }
-                        else if (lifts[index] >= 270 && lifts[index] < 280) {
-                            liftColumns[22]++;
-                        }
-                        else if (lifts[index] >= 280 && lifts[index] < 290) {
-                            liftColumns[23]++;
-                        }
-                        else if (lifts[index] >= 290 && lifts[index] < 300) {
-                            liftColumns[24]++;
-                        }
-                        else if (lifts[index] >= 300 && lifts[index] < 310) {
-                            liftColumns[25]++;
-                        }
-                        else if (lifts[index] >= 310 && lifts[index] < 320) {
-                            liftColumns[26]++;
-                        }
-                        else if (lifts[index] >= 320 && lifts[index] < 330) {
-                            liftColumns[27]++;
-                        }
-                        else if (lifts[index] >= 330 && lifts[index] < 340) {
-                            liftColumns[28]++;
-                        }
                         else {
-                            liftColumns[29]++;
+                            liftColumns[19]++;
                         }
                     }
                     admin.database().ref('liftSumsUnverified')
@@ -369,16 +329,6 @@ exports.listener = exports.liftSumsUnverifiedBench = functions.https
                         22: liftColumns[17],
                         23: liftColumns[18],
                         24: liftColumns[19],
-                        25: liftColumns[20],
-                        26: liftColumns[21],
-                        27: liftColumns[22],
-                        28: liftColumns[23],
-                        29: liftColumns[24],
-                        30: liftColumns[25],
-                        31: liftColumns[26],
-                        32: liftColumns[27],
-                        33: liftColumns[28],
-                        34: liftColumns[29]
                     });
                 });
             }
@@ -389,7 +339,7 @@ exports.listener = exports.liftSumsUnverifiedBench = functions.https
 
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -404,6 +354,9 @@ exports.listener = exports.liftSumsUnverifiedSquat = functions.https
         'ageGroup4', 'ageGroup5', 'ageGroup6', 'ageGroup7', 'ageGroup8'];
     const weightGroups = ['weightGroup1', 'weightGroup2', 'weightGroup3',
         'weightGroup4', 'weightGroup5', 'weightGroup6', 'weightGroup7', 'weightGroup8'];
+    // NOTE: These functions / listeners are time and are not to scale.
+    // I decided to leave it as is due to readability and from having over 2 dozen files, one for each function
+    // When the time comes I would break down the for loop to a more scalable solution as a create additional files
     for (let i = 0; i < sexGroups.length; i++) {
         for (let j = 0; j < ageGroups.length; j++) {
             for (let k = 0; k < weightGroups.length; k++) {
@@ -460,7 +413,7 @@ exports.listener = exports.liftSumsUnverifiedSquat = functions.https
                     // NOW create load a new array with data to fill the chart with
                     // NOTE: this can be done more efficiently in a previous loop
                     // but this is done for readability.
-                    const liftColumns = new Array(30).fill(0);
+                    const liftColumns = new Array(20).fill(0);
                     for (let index = 0; index < lifts.length; ++index) {
                         if (lifts[index] > 0 && lifts[index] < 60) {
                             liftColumns[0]++;
@@ -519,38 +472,8 @@ exports.listener = exports.liftSumsUnverifiedSquat = functions.https
                         else if (lifts[index] >= 230 && lifts[index] < 240) {
                             liftColumns[18]++;
                         }
-                        else if (lifts[index] >= 240 && lifts[index] < 250) {
-                            liftColumns[19]++;
-                        }
-                        else if (lifts[index] >= 250 && lifts[index] < 260) {
-                            liftColumns[20]++;
-                        }
-                        else if (lifts[index] >= 260 && lifts[index] < 270) {
-                            liftColumns[21]++;
-                        }
-                        else if (lifts[index] >= 270 && lifts[index] < 280) {
-                            liftColumns[22]++;
-                        }
-                        else if (lifts[index] >= 280 && lifts[index] < 290) {
-                            liftColumns[23]++;
-                        }
-                        else if (lifts[index] >= 290 && lifts[index] < 300) {
-                            liftColumns[24]++;
-                        }
-                        else if (lifts[index] >= 300 && lifts[index] < 310) {
-                            liftColumns[25]++;
-                        }
-                        else if (lifts[index] >= 310 && lifts[index] < 320) {
-                            liftColumns[26]++;
-                        }
-                        else if (lifts[index] >= 320 && lifts[index] < 330) {
-                            liftColumns[27]++;
-                        }
-                        else if (lifts[index] >= 330 && lifts[index] < 340) {
-                            liftColumns[28]++;
-                        }
                         else {
-                            liftColumns[29]++;
+                            liftColumns[19]++;
                         }
                     }
                     admin.database().ref('liftSumsUnverified')
@@ -579,17 +502,7 @@ exports.listener = exports.liftSumsUnverifiedSquat = functions.https
                         21: liftColumns[16],
                         22: liftColumns[17],
                         23: liftColumns[18],
-                        24: liftColumns[19],
-                        25: liftColumns[20],
-                        26: liftColumns[21],
-                        27: liftColumns[22],
-                        28: liftColumns[23],
-                        29: liftColumns[24],
-                        30: liftColumns[25],
-                        31: liftColumns[26],
-                        32: liftColumns[27],
-                        33: liftColumns[28],
-                        34: liftColumns[29]
+                        24: liftColumns[19]
                     });
                 });
             }
@@ -600,7 +513,7 @@ exports.listener = exports.liftSumsUnverifiedSquat = functions.https
 
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -730,38 +643,8 @@ exports.listener = exports.liftSumsUnverifiedSquat = functions.https
                         else if (lifts[index] >= 230 && lifts[index] < 240) {
                             liftColumns[18]++;
                         }
-                        else if (lifts[index] >= 240 && lifts[index] < 250) {
-                            liftColumns[19]++;
-                        }
-                        else if (lifts[index] >= 250 && lifts[index] < 260) {
-                            liftColumns[20]++;
-                        }
-                        else if (lifts[index] >= 260 && lifts[index] < 270) {
-                            liftColumns[21]++;
-                        }
-                        else if (lifts[index] >= 270 && lifts[index] < 280) {
-                            liftColumns[22]++;
-                        }
-                        else if (lifts[index] >= 280 && lifts[index] < 290) {
-                            liftColumns[23]++;
-                        }
-                        else if (lifts[index] >= 290 && lifts[index] < 300) {
-                            liftColumns[24]++;
-                        }
-                        else if (lifts[index] >= 300 && lifts[index] < 310) {
-                            liftColumns[25]++;
-                        }
-                        else if (lifts[index] >= 310 && lifts[index] < 320) {
-                            liftColumns[26]++;
-                        }
-                        else if (lifts[index] >= 320 && lifts[index] < 330) {
-                            liftColumns[27]++;
-                        }
-                        else if (lifts[index] >= 330 && lifts[index] < 340) {
-                            liftColumns[28]++;
-                        }
                         else {
-                            liftColumns[29]++;
+                            liftColumns[19]++;
                         }
                     }
                     admin.database().ref('liftSumsUnverified')
@@ -790,17 +673,7 @@ exports.listener = exports.liftSumsUnverifiedSquat = functions.https
                         21: liftColumns[16],
                         22: liftColumns[17],
                         23: liftColumns[18],
-                        24: liftColumns[19],
-                        25: liftColumns[20],
-                        26: liftColumns[21],
-                        27: liftColumns[22],
-                        28: liftColumns[23],
-                        29: liftColumns[24],
-                        30: liftColumns[25],
-                        31: liftColumns[26],
-                        32: liftColumns[27],
-                        33: liftColumns[28],
-                        34: liftColumns[29]
+                        24: liftColumns[19]
                     });
                 });
             }
@@ -811,7 +684,7 @@ exports.listener = exports.liftSumsUnverifiedSquat = functions.https
 
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -826,6 +699,9 @@ exports.listener = exports.liftSumsUnverifiedDeadlift = functions.https
         'ageGroup4', 'ageGroup5', 'ageGroup6', 'ageGroup7', 'ageGroup8'];
     const weightGroups = ['weightGroup1', 'weightGroup2', 'weightGroup3',
         'weightGroup4', 'weightGroup5', 'weightGroup6', 'weightGroup7', 'weightGroup8'];
+    // NOTE: These functions / listeners are time and are not to scale.
+    // I decided to leave it as is due to readability and from having over 2 dozen files, one for each function
+    // When the time comes I would break down the for loop to a more scalable solution as a create additional files
     for (let i = 0; i < sexGroups.length; i++) {
         for (let j = 0; j < ageGroups.length; j++) {
             for (let k = 0; k < weightGroups.length; k++) {
@@ -941,38 +817,8 @@ exports.listener = exports.liftSumsUnverifiedDeadlift = functions.https
                         else if (lifts[index] >= 230 && lifts[index] < 240) {
                             liftColumns[18]++;
                         }
-                        else if (lifts[index] >= 240 && lifts[index] < 250) {
-                            liftColumns[19]++;
-                        }
-                        else if (lifts[index] >= 250 && lifts[index] < 260) {
-                            liftColumns[20]++;
-                        }
-                        else if (lifts[index] >= 260 && lifts[index] < 270) {
-                            liftColumns[21]++;
-                        }
-                        else if (lifts[index] >= 270 && lifts[index] < 280) {
-                            liftColumns[22]++;
-                        }
-                        else if (lifts[index] >= 280 && lifts[index] < 290) {
-                            liftColumns[23]++;
-                        }
-                        else if (lifts[index] >= 290 && lifts[index] < 300) {
-                            liftColumns[24]++;
-                        }
-                        else if (lifts[index] >= 300 && lifts[index] < 310) {
-                            liftColumns[25]++;
-                        }
-                        else if (lifts[index] >= 310 && lifts[index] < 320) {
-                            liftColumns[26]++;
-                        }
-                        else if (lifts[index] >= 320 && lifts[index] < 330) {
-                            liftColumns[27]++;
-                        }
-                        else if (lifts[index] >= 330 && lifts[index] < 340) {
-                            liftColumns[28]++;
-                        }
                         else {
-                            liftColumns[29]++;
+                            liftColumns[19]++;
                         }
                     }
                     admin.database().ref('liftSumsUnverified')
@@ -1002,16 +848,6 @@ exports.listener = exports.liftSumsUnverifiedDeadlift = functions.https
                         22: liftColumns[17],
                         23: liftColumns[18],
                         24: liftColumns[19],
-                        25: liftColumns[20],
-                        26: liftColumns[21],
-                        27: liftColumns[22],
-                        28: liftColumns[23],
-                        29: liftColumns[24],
-                        30: liftColumns[25],
-                        31: liftColumns[26],
-                        32: liftColumns[27],
-                        33: liftColumns[28],
-                        34: liftColumns[29]
                     });
                 });
             }
@@ -1022,7 +858,7 @@ exports.listener = exports.liftSumsUnverifiedDeadlift = functions.https
 
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1037,6 +873,9 @@ exports.listener = exports.liftSumsUnverifiedClean = functions.https
         'ageGroup4', 'ageGroup5', 'ageGroup6', 'ageGroup7', 'ageGroup8'];
     const weightGroups = ['weightGroup1', 'weightGroup2', 'weightGroup3',
         'weightGroup4', 'weightGroup5', 'weightGroup6', 'weightGroup7', 'weightGroup8'];
+    // NOTE: These functions / listeners are time and are not to scale.
+    // I decided to leave it as is due to readability and from having over 2 dozen files, one for each function
+    // When the time comes I would break down the for loop to a more scalable solution as a create additional files
     for (let i = 0; i < sexGroups.length; i++) {
         for (let j = 0; j < ageGroups.length; j++) {
             for (let k = 0; k < weightGroups.length; k++) {
@@ -1152,38 +991,8 @@ exports.listener = exports.liftSumsUnverifiedClean = functions.https
                         else if (lifts[index] >= 230 && lifts[index] < 240) {
                             liftColumns[18]++;
                         }
-                        else if (lifts[index] >= 240 && lifts[index] < 250) {
-                            liftColumns[19]++;
-                        }
-                        else if (lifts[index] >= 250 && lifts[index] < 260) {
-                            liftColumns[20]++;
-                        }
-                        else if (lifts[index] >= 260 && lifts[index] < 270) {
-                            liftColumns[21]++;
-                        }
-                        else if (lifts[index] >= 270 && lifts[index] < 280) {
-                            liftColumns[22]++;
-                        }
-                        else if (lifts[index] >= 280 && lifts[index] < 290) {
-                            liftColumns[23]++;
-                        }
-                        else if (lifts[index] >= 290 && lifts[index] < 300) {
-                            liftColumns[24]++;
-                        }
-                        else if (lifts[index] >= 300 && lifts[index] < 310) {
-                            liftColumns[25]++;
-                        }
-                        else if (lifts[index] >= 310 && lifts[index] < 320) {
-                            liftColumns[26]++;
-                        }
-                        else if (lifts[index] >= 320 && lifts[index] < 330) {
-                            liftColumns[27]++;
-                        }
-                        else if (lifts[index] >= 330 && lifts[index] < 340) {
-                            liftColumns[28]++;
-                        }
                         else {
-                            liftColumns[29]++;
+                            liftColumns[19]++;
                         }
                     }
                     admin.database().ref('liftSumsUnverified')
@@ -1213,16 +1022,6 @@ exports.listener = exports.liftSumsUnverifiedClean = functions.https
                         22: liftColumns[17],
                         23: liftColumns[18],
                         24: liftColumns[19],
-                        25: liftColumns[20],
-                        26: liftColumns[21],
-                        27: liftColumns[22],
-                        28: liftColumns[23],
-                        29: liftColumns[24],
-                        30: liftColumns[25],
-                        31: liftColumns[26],
-                        32: liftColumns[27],
-                        33: liftColumns[28],
-                        34: liftColumns[29]
                     });
                 });
             }
@@ -1233,7 +1032,7 @@ exports.listener = exports.liftSumsUnverifiedClean = functions.https
 
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1248,6 +1047,9 @@ exports.listener = exports.liftSumsUnverifiedPowerClean = functions.https
         'ageGroup4', 'ageGroup5', 'ageGroup6', 'ageGroup7', 'ageGroup8'];
     const weightGroups = ['weightGroup1', 'weightGroup2', 'weightGroup3',
         'weightGroup4', 'weightGroup5', 'weightGroup6', 'weightGroup7', 'weightGroup8'];
+    // NOTE: These functions / listeners are time and are not to scale.
+    // I decided to leave it as is due to readability and from having over 2 dozen files, one for each function
+    // When the time comes I would break down the for loop to a more scalable solution as a create additional files
     for (let i = 0; i < sexGroups.length; i++) {
         for (let j = 0; j < ageGroups.length; j++) {
             for (let k = 0; k < weightGroups.length; k++) {
@@ -1363,38 +1165,8 @@ exports.listener = exports.liftSumsUnverifiedPowerClean = functions.https
                         else if (lifts[index] >= 230 && lifts[index] < 240) {
                             liftColumns[18]++;
                         }
-                        else if (lifts[index] >= 240 && lifts[index] < 250) {
-                            liftColumns[19]++;
-                        }
-                        else if (lifts[index] >= 250 && lifts[index] < 260) {
-                            liftColumns[20]++;
-                        }
-                        else if (lifts[index] >= 260 && lifts[index] < 270) {
-                            liftColumns[21]++;
-                        }
-                        else if (lifts[index] >= 270 && lifts[index] < 280) {
-                            liftColumns[22]++;
-                        }
-                        else if (lifts[index] >= 280 && lifts[index] < 290) {
-                            liftColumns[23]++;
-                        }
-                        else if (lifts[index] >= 290 && lifts[index] < 300) {
-                            liftColumns[24]++;
-                        }
-                        else if (lifts[index] >= 300 && lifts[index] < 310) {
-                            liftColumns[25]++;
-                        }
-                        else if (lifts[index] >= 310 && lifts[index] < 320) {
-                            liftColumns[26]++;
-                        }
-                        else if (lifts[index] >= 320 && lifts[index] < 330) {
-                            liftColumns[27]++;
-                        }
-                        else if (lifts[index] >= 330 && lifts[index] < 340) {
-                            liftColumns[28]++;
-                        }
                         else {
-                            liftColumns[29]++;
+                            liftColumns[19]++;
                         }
                     }
                     admin.database().ref('liftSumsUnverified')
@@ -1423,17 +1195,7 @@ exports.listener = exports.liftSumsUnverifiedPowerClean = functions.https
                         21: liftColumns[16],
                         22: liftColumns[17],
                         23: liftColumns[18],
-                        24: liftColumns[19],
-                        25: liftColumns[20],
-                        26: liftColumns[21],
-                        27: liftColumns[22],
-                        28: liftColumns[23],
-                        29: liftColumns[24],
-                        30: liftColumns[25],
-                        31: liftColumns[26],
-                        32: liftColumns[27],
-                        33: liftColumns[28],
-                        34: liftColumns[29]
+                        24: liftColumns[19]
                     });
                 });
             }
@@ -1444,7 +1206,7 @@ exports.listener = exports.liftSumsUnverifiedPowerClean = functions.https
 
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1611,7 +1373,7 @@ exports.listener = exports.healthSumsUnverifiedBMI = functions.https
 
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1754,7 +1516,7 @@ exports.listener = exports.healthSumsUnverifiedBMR = functions.https
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

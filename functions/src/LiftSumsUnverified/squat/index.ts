@@ -119,10 +119,8 @@ export const listener = exports.liftSumsUnverifiedSquat = functions.https
                                     liftColumns[17]++;
                                 } else if (lifts[index] >= 230 && lifts[index] < 240) {
                                     liftColumns[18]++;
-                                } else if (lifts[index] >= 240 && lifts[index] < 250) {
+                                } else {
                                     liftColumns[19]++;
-                                }  else {
-                                    liftColumns[20]++;
                                 }
                             }
 
@@ -152,8 +150,7 @@ export const listener = exports.liftSumsUnverifiedSquat = functions.https
                                     21: liftColumns[16],
                                     22: liftColumns[17],
                                     23: liftColumns[18],
-                                    24: liftColumns[19],
-                                    25: liftColumns[20],
+                                    24: liftColumns[19]
                                 });
                         });
                 }

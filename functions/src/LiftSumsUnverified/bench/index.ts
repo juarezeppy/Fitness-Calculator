@@ -119,28 +119,8 @@ export const listener = exports.liftSumsUnverifiedBench = functions.https
                                     liftColumns[17]++;
                                 } else if (lifts[index] >= 230 && lifts[index] < 240) {
                                     liftColumns[18]++;
-                                } else if (lifts[index] >= 240 && lifts[index] < 250) {
-                                    liftColumns[19]++;
-                                } else if (lifts[index] >= 250 && lifts[index] < 260) {
-                                    liftColumns[20]++;
-                                } else if (lifts[index] >= 260 && lifts[index] < 270) {
-                                    liftColumns[21]++;
-                                } else if (lifts[index] >= 270 && lifts[index] < 280) {
-                                    liftColumns[22]++;
-                                } else if (lifts[index] >= 280 && lifts[index] < 290) {
-                                    liftColumns[23]++;
-                                } else if (lifts[index] >= 290 && lifts[index] < 300) {
-                                    liftColumns[24]++;
-                                } else if (lifts[index] >= 300 && lifts[index] < 310) {
-                                    liftColumns[25]++;
-                                } else if (lifts[index] >= 310 && lifts[index] < 320) {
-                                    liftColumns[26]++;
-                                } else if (lifts[index] >= 320 && lifts[index] < 330) {
-                                    liftColumns[27]++;
-                                } else if (lifts[index] >= 330 && lifts[index] < 340) {
-                                    liftColumns[28]++;
                                 } else {
-                                    liftColumns[29]++;
+                                    liftColumns[19]++;
                                 }
                             }
 
@@ -171,16 +151,6 @@ export const listener = exports.liftSumsUnverifiedBench = functions.https
                                     22: liftColumns[17],
                                     23: liftColumns[18],
                                     24: liftColumns[19],
-                                    25: liftColumns[20],
-                                    26: liftColumns[21],
-                                    27: liftColumns[22],
-                                    28: liftColumns[23],
-                                    29: liftColumns[24],
-                                    30: liftColumns[25],
-                                    31: liftColumns[26],
-                                    32: liftColumns[27],
-                                    33: liftColumns[28],
-                                    34: liftColumns[29]
                                 });
                         });
                 }

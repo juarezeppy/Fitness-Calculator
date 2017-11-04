@@ -7,7 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule }         from './app-routing.module';
 import { AppComponent }             from './app.component';
 import { HeaderComponent }          from './header/header.component';
-import { SidebarComponent }         from './sidebar/sidebar.component';
 import { ContentComponent }         from './content/content.component';
 import { FooterComponent }          from './footer/footer.component';
 import { TopMenuComponent }         from './top-menu/top-menu.component';
@@ -66,7 +65,6 @@ import {AuthGuardService} from './services/auth-guard.service';
     declarations:   [
         AppComponent,
         HeaderComponent,
-        SidebarComponent,
         ContentComponent,
         TopMenuComponent,
         MegaMenuComponent,
