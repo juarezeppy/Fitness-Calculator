@@ -20,7 +20,6 @@ import { V3BUComponent }            from './pages/dashboard/v3-bu/v3-bu.componen
 
 // User Login / Register
 import { LoginV2Page }              from './pages/user/login-v2/login-v2';
-import { RegisterV3Page }           from './pages/user/register-v3/register-v3';
 
 // Calculator
 import { CalculatorsComponent }     from './calculators/calculators.component';
@@ -73,7 +72,6 @@ import {AuthGuardService} from './services/auth-guard.service';
         MegaMenuComponent,
         FooterComponent,
         LoginV2Page,
-        RegisterV3Page,
         V3BUComponent,
         CalculatorsComponent,
         BmiComponent,

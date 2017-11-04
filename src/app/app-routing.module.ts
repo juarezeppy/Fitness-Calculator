@@ -6,7 +6,6 @@ import { V3BUComponent }            from './pages/dashboard/v3-bu/v3-bu.componen
 
 // User Login / Register
 import { LoginV2Page }              from './pages/user/login-v2/login-v2';
-import { RegisterV3Page }           from './pages/user/register-v3/register-v3';
 
 // Calculators
 import {CalculatorsComponent}       from './calculators/calculators.component';
@@ -26,7 +25,6 @@ const routes: Routes = [
     { path: 'dashboard', component: V3BUComponent, canActivate: [AuthGuardService], data: { title: 'Dashboard'} },
     { path: 'login', component: LoginV2Page, data: { title: 'Login V2 Page'} },
     { path: 'register', component: RegisterComponent, data: {title: 'Registration'} },
-    { path: 'user/register-v3', component: RegisterV3Page, data: { title: 'Register V3 Page'} },
     { path: '**', redirectTo: '', pathMatch: 'full' }
 
 ];
