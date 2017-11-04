@@ -37,11 +37,21 @@ export class V3BUComponent implements OnInit {
 
               this.user$ = this.physicalStats.getUserData();
               this.user$.subscribe( snapshot => {   // <--- snapshot contains the object from the database
-                  this.user.BMI = Math.round(snapshot.bmi * 100) / 100;
-                  this.user.BMR = Math.round(snapshot.bmr * 100) / 100;
-                  this.user.TDEE = Math.round(snapshot.tdee * 100) / 100;
-                  this.user.Weight = Math.round(snapshot.weight * 100) / 100;
-                  this.user.Age = snapshot.age;
+                  if (!isNaN(snapshot.bmi)) {
+                      this.user.BMI = Math.round(snapshot.bmi * 100) / 100;
+                  }
+                  if (!isNaN(snapshot.bmr)) {
+                      this.user.BMR = Math.round(snapshot.bmr * 100) / 100;
+                  }
+                  if (!isNaN(snapshot.tdee)) {
+                      this.user.TDEE = Math.round(snapshot.tdee * 100) / 100;
+                  }
+                  if (!isNaN(snapshot.weight)) {
+                      this.user.Weight = Math.round(snapshot.weight * 100) / 100;
+                  }
+                  if (!isNaN(snapshot.age)) {
+                      this.user.Age = snapshot.age;
+                  }
               });
           }
       });

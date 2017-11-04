@@ -1,7 +1,5 @@
 import { Component, OnInit }      from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Router, NavigationStart }                 from '@angular/router';
-import { AppComponent }           from '../../../app.component';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {AuthService}              from '../../../services/auth.service';
 
 @Component({
@@ -10,8 +8,6 @@ import {AuthService}              from '../../../services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-    registerForm: FormGroup;
-
     form = new FormGroup({
         formFirstName: new FormControl('', [
             Validators.required
@@ -19,36 +15,30 @@ export class RegisterComponent implements OnInit {
         formLastName: new FormControl('', [
             Validators.required
         ]),
-        formUsername: new FormControl('' , [
+        formEmail: new FormControl('' , [
             Validators.required,
             Validators.email
         ]),
         formPassWord: new FormControl('', [
-            Validators.required
+            Validators.required,
+            Validators.minLength(6)
         ]),
         formVerifyPassWord: new FormControl('', [
-            Validators.required
+            Validators.required,
+            Validators.minLength(6)
         ])
     });
 
-    constructor(private authService: AuthService, private router: Router, app: AppComponent) {
-        /*
-        console.log(router.routerState.snapshot);
-        console.log(router.events);
-        console.log(router.events.subscribe(result => {
-            console.log(result);
-        }));
-        */
+    constructor(private authService: AuthService) {
     }
     ngOnInit() {
-        // let id = this.route.snapshot.paramMap.get('id');
         window.dispatchEvent(new CustomEvent('page-register-v3-ready'));
     }
 
 
     // use all lower case for native validators!!!!
-    get formUsername() {
-        return this.form.get('formUsername');
+    get formEmail() {
+        return this.form.get('formEmail');
     }
 
     get formPassWord() {
@@ -76,7 +66,7 @@ export class RegisterComponent implements OnInit {
 
     signUp() {
         // Remember to fix First/Last name space issues 'John' instead of '     John  ' <-- space issue
-        this.authService.signupUserEP(this.formFirstName.value, this.formLastName.value, this.formUsername.value, this.formPassWord.value);
+        this.authService.signupUserEP(this.formFirstName.value, this.formLastName.value, this.formEmail.value, this.formPassWord.value);
     }
 
     fbSignUp() {

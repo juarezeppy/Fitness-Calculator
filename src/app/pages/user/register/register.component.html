@@ -56,21 +56,21 @@
         </div>
 
       <div class="form-group form-group-lg">
-        <label for="formUsername">Email<span class="text-danger">*</span></label>
+        <label for="formEmail">Email<span class="text-danger">*</span></label>
         <div class="row m-b-15">
           <div class="col-md-12">
             <input
-                    formControlName="formUsername"
-                    id="formUsername"
+                    formControlName="formEmail"
+                    id="formEmail"
                     type="email"
                     pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
                     class="form-control">
           </div>
         </div>
         <div
-                *ngIf="formUsername.touched && formUsername.invalid"
+                *ngIf="formEmail.touched && formEmail.invalid"
                 class="alert alert-danger">
-          <div *ngIf="formUsername.hasError('required')">An email is required</div>
+          <div *ngIf="formEmail.hasError('required')">An email is required</div>
           <div>A valid email is required</div>
         </div>
       </div>
@@ -90,6 +90,8 @@
                 *ngIf="formPassWord.touched && formPassWord.invalid"
                 class="alert alert-danger">
           <div *ngIf="formPassWord.hasError('required')">A password is required</div>
+            <div>Length must be at least 6 characters.</div>
+
         </div>
       </div>
 
@@ -107,28 +109,30 @@
         <div
                 *ngIf="formVerifyPassWord.touched && formVerifyPassWord.invalid"
                 class="alert alert-danger">
-          <div *ngIf="formVerifyPassWord.hasError('required')">A confirm password is required</div>
+          <div *ngIf="formVerifyPassWord.errors.required">A confirm password is required</div>
+            <div>Length must be at least 6 characters.</div>
+
         </div>
       </div>
 
-    <!--
-      <div class="checkbox m-b-30">
-        <label>
-          <input type="checkbox" required /> By clicking Sign Up, you agree to our <a href="#">Terms</a> and that you have read our <a href="#">Data Policy</a>, including our <a href="#">Cookie Use</a>.
-        </label>
-      </div>
-        !-->
 
       <div class="register-buttons">
+
+          <div  *ngIf="formVerifyPassWord.touched && formPassWord.touched && !equalPasswords()"
+                class="alert alert-danger">
+              <div>Password & confirm password must be the same.</div>
+          </div>
+
         <button
                 class="btn btn-primary btn-block btn-lg"
                 [disabled]="!form.valid || !equalPasswords()">Sign Up
         </button>
 
-        <button class="btn btn-block btn-lg btn-social btn-facebook" (click)="fbSignUp()">
-          <span class="fa fa-facebook"></span> Sign Up With Facebook
-        </button>
       </div>
+
+        <button class="btn btn-block btn-lg btn-social btn-facebook m-t-5" (click)="fbSignUp()">
+            <span class="fa fa-facebook"></span> Sign Up With Facebook
+        </button>
 
         <hr />
         <p class="text-center">
