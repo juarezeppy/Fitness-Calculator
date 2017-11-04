@@ -30,8 +30,15 @@ export class HeaderComponent implements OnInit {
                 this.physicalStats.getUserData().forEach( userData => {
                     console.log('header ngOnInit', userData);
                     this.user.Name = userData.name;
-                    this.user.ImageURL = authState.photoURL;
+                    // this.user.ImageURL = authState.photoURL;
                 });
+
+                // NEED TO fix this.... not retrieving FB url correctly.
+                authState.providerData.map( value => {
+                    console.log(value);
+                    this.user.ImageURL = value.photoURL;
+                });
+
             } else {
                 this.user.Name = '';
             }

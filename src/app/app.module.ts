@@ -18,9 +18,6 @@ import { HomeComponent }            from './home/home.component';
 // Dashboard
 import { V3BUComponent }            from './pages/dashboard/v3-bu/v3-bu.component';
 
-// UI Element
-import { UIIntroJsPage }            from './pages/ui-elements/intro-js/intro-js';
-
 // User Login / Register
 import { LoginV2Page }              from './pages/user/login-v2/login-v2';
 import { RegisterV3Page }           from './pages/user/register-v3/register-v3';
@@ -75,7 +72,6 @@ import {AuthGuardService} from './services/auth-guard.service';
         TopMenuComponent,
         MegaMenuComponent,
         FooterComponent,
-        UIIntroJsPage,
         LoginV2Page,
         RegisterV3Page,
         V3BUComponent,

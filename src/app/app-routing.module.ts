@@ -14,7 +14,6 @@ import {StrengthComponent}          from './calculators/strength/strength.compon
 import {HealthComponent}            from './calculators/health/health.component';
 
 import {RegisterComponent}          from './pages/user/register/register.component';
-import {HomeComponent}              from './home/home.component';
 
 // auth guard service
 import {AuthGuardService} from './services/auth-guard.service';

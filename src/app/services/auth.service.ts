@@ -94,14 +94,14 @@ export class AuthService {
             // console.log('uid', result.credential.accessToken);
 
             this.userID = result.user.uid;
-            console.log(this.userID);
+            console.log(this.userID, 'imageURL:', this.user.ImageURL, 'result.user', result.user);
             this.getUserData();
 
             // update user data upon sign in
             this.db.object('users/' + result.user.uid).update({
                 accessToken: result.credential.accessToken,
                 name: result.user.displayName
-            })
+            });
 
             this.router.navigate(['/dashboard']);       // route to dashboard after login
         })
@@ -181,51 +181,6 @@ export class AuthService {
  // ...
  });
 */
-
-// a clunky way to check if user exist prior to updating database.
-/*
-  login() {
-    // this is a observable / promise... note the then and catch
-    const fbLogin = firebase.auth().signInWithPopup(this.provider);
-
-    // Test for the existence of certain keys within a DataSnapshot
-    // in this case, test if user exist in database
-    this.usersID = firebase.auth().currentUser.uid;
-
-    firebase.database().ref('users/' + this.usersID).once('value')
-      .then(function(snapshot) {
-        if (!snapshot.exists()) {
-          fbLogin
-            .then(result => {
-              console.log('made update');
-              const user = result.user;
-              firebase.database().ref('users/' + user.uid).update({
-                accessToken: result.credential.accessToken,
-                name: user.displayName
-              });
-            })
-            .catch((error: any) => {
-              // Handle Errors here.
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              // The email of the user's account used.
-              const email = error.email;
-              // The firebase.auth.AuthCredential type that was used.
-              const credential = error.credential;
-              console.log(errorMessage);
-              // ...
-            });
-        }
-      })
-      .catch((error: any) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log('doesnt exist')
-        // ...
-      });
-  }
- */
 
 
 // accessing the FB graph api //NOTE THAT THIS THROWS A DATABASE ACCESS DENIED EXCEPTION
