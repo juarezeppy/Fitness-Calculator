@@ -1,6 +1,4 @@
 import { Component, OnInit, ViewEncapsulation, Input }  from '@angular/core';
-import {single}                                         from './data';
-import {multi}                                          from './data';
 import { UserDBService }                                from '../../services/user-db-service';
 import {ChartPathService}                               from '../../services/chart-path.service';
 
@@ -53,9 +51,6 @@ export class HistogramChartComponent implements OnInit {
         this.colorScheme2 = new ChartDomain();
         this.colorScheme2.domain = [];
         this.setUserBar = false;
-
-        Object.assign(this, {single});
-        Object.assign(this, {multi});
     }
 
     ngOnInit() {
