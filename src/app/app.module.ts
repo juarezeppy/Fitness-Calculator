@@ -11,7 +11,6 @@ import { ContentComponent }         from './content/content.component';
 import { FooterComponent }          from './footer/footer.component';
 import { TopMenuComponent }         from './top-menu/top-menu.component';
 import { MegaMenuComponent }        from './header/mega-menu/mega-menu.component';
-import { HomeComponent }            from './home/home.component';
 
 
 // Dashboard
@@ -79,7 +78,6 @@ import {AuthGuardService} from './services/auth-guard.service';
         RegisterComponent,
         StrengthComponent,
         HealthComponent,
-        HomeComponent,
         HistogramChartComponent
     ],
     providers: [ Title, AuthService, UserDBService, ChartPathService, AuthGuardService ],
