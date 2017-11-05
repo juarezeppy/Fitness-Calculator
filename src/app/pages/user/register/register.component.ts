@@ -8,6 +8,10 @@ import {AuthService}              from '../../../services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+    // use all lower case for native validators!!!!
+    // example minlength NOT minLength
+
     form = new FormGroup({
         formFirstName: new FormControl('', [
             Validators.required

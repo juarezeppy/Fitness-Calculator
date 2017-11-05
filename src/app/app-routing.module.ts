@@ -8,7 +8,6 @@ import { V3BUComponent }            from './pages/dashboard/v3-bu/v3-bu.componen
 import { LoginV2Page }              from './pages/user/login-v2/login-v2';
 
 // Calculators
-import {CalculatorsComponent}       from './calculators/calculators.component';
 import {StrengthComponent}          from './calculators/strength/strength.component';
 import {HealthComponent}            from './calculators/health/health.component';
 
@@ -19,7 +18,6 @@ import {AuthGuardService} from './services/auth-guard.service';
 
 const routes: Routes = [
     { path: '', component: StrengthComponent, data: { title: 'Home'} },
-    { path: 'calculators', component: CalculatorsComponent },
     { path: 'calculators/strength', component: StrengthComponent, data: { title: 'Strength Calculators'}},
     { path: 'calculators/health', component: HealthComponent, data: { title: 'Health Calculators'}},
     { path: 'dashboard', component: V3BUComponent, canActivate: [AuthGuardService], data: { title: 'Dashboard'} },

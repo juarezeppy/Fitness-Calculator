@@ -145,12 +145,10 @@ export class AuthService {
     }
 }
 
-// console.log('logged in', authState, authState.getIdToken()); // equal to firebase.auth().currentUser
 
 // simple json object of facebook api data(providerData)
 /*
  const user = firebase.auth().currentUser;
-
  if (user != null) {
  user.providerData.forEach(function (profile) {
  console.log(profile);
@@ -163,35 +161,6 @@ export class AuthService {
  }
  */
 
-/*
- // Test for the existence of certain keys within a DataSnapshot
- // in this case, test if user exist in database
- const ref = firebase.database().ref('users/' + this.usersID);
-
- ref.once('value')
- .then(function(snapshot) {
- const userExist = snapshot.exists();  // true
- console.log('in function');
- console.log(userExist);
- })
- .catch((error: any) => {
- // Handle Errors here.
- const errorCode = error.code;
- const errorMessage = error.message;
- // ...
- });
-*/
 
 
-// accessing the FB graph api //NOTE THAT THIS THROWS A DATABASE ACCESS DENIED EXCEPTION
-/*
-const userRef = this.db.object('/users/' + user.uid);
-userRef.subscribe(TEST => {
-  const url = `https://graph.facebook.com/v2.8/1225632210875179?fields=first_name,last_name,gender&access_token=${TEST.accessToken}`;
-  this.http.get(url).subscribe(response => {
-    const OMG = response.json();
-    console.log(OMG);
-  })
-});
-*/
 

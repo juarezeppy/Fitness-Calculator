@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
                     // this.user.ImageURL = authState.photoURL;
                 });
 
-                // NEED TO fix this.... not retrieving FB url correctly.
+                // NEED TO optimize this.... not retrieving FB image url efficiently.
                 authState.providerData.map( value => {
                     console.log(value);
                     this.user.ImageURL = value.photoURL;

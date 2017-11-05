@@ -90,7 +90,7 @@
                 *ngIf="formPassWord.touched && formPassWord.invalid"
                 class="alert alert-danger">
           <div *ngIf="formPassWord.hasError('required')">A password is required</div>
-            <div>Length must be at least 6 characters.</div>
+          <div *ngIf="formPassWord.hasError('minlength')">Length must be at least 6 characters.</div>
 
         </div>
       </div>
@@ -110,7 +110,7 @@
                 *ngIf="formVerifyPassWord.touched && formVerifyPassWord.invalid"
                 class="alert alert-danger">
           <div *ngIf="formVerifyPassWord.errors.required">A confirm password is required</div>
-            <div>Length must be at least 6 characters.</div>
+          <div *ngIf="formVerifyPassWord.hasError('minlength')">Length must be at least 6 characters.</div>
 
         </div>
       </div>
