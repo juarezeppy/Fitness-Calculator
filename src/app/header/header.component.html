@@ -24,8 +24,9 @@
             <!-- Top right login / profile image begins here !-->
             <li *ngIf="loggedIn" class="dropdown navbar-user">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                    <!-- <img src="/assets/img/user-13.jpg" alt="" /> !-->
-                    <img [src]="user.ImageURL" alt="NO IMAGE">
+                    <img *ngIf="user.ImageURL" [src]="user.ImageURL" alt="NO IMAGE">
+                    <img *ngIf="!user.ImageURL" src="./assets/img/user-12.jpg" alt="DEFAULT IMAGE">
+
                     <span class="hidden-xs">{{user.Name}}</span> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu animated fadeInLeft">
