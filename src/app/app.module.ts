@@ -46,7 +46,6 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
 // Firebase Config
 import {firebaseConfig} from '../firebaseConfig';
 import {AuthGuardService} from './services/auth-guard.service';
-import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
     imports:        [
@@ -56,7 +55,6 @@ import {HttpClientModule} from '@angular/common/http';
         AngularFireDatabaseModule,
         AngularFireAuthModule,
         HttpModule,
-        HttpClientModule,
         AppRoutingModule,
         ReactiveFormsModule,
         BrowserModule,
@@ -82,7 +80,7 @@ import {HttpClientModule} from '@angular/common/http';
         HealthComponent,
         HistogramChartComponent
     ],
-    providers: [ Title, AuthService, UserDBService, ChartPathService, AuthGuardService ],
+    providers: [ Title, AuthService, UserDBService, ChartPathService, AuthGuardService],
     bootstrap: [ AppComponent ]
 })
 
