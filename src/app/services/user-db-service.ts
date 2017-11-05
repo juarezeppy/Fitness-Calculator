@@ -2,6 +2,7 @@ import { Injectable }           from '@angular/core';
 import {AngularFireDatabase}    from 'angularfire2/database';
 import {AuthService}            from './auth.service';
 import { Http }                   from '@angular/http';
+const http = require('http');
 
 // This service handles the hud / GUI components for user workout pages
 // AND loading their information from the DB in general
@@ -10,9 +11,10 @@ export class UserDBService {
     private userID:     string;
     private address:    string;
 
-    constructor(private http: Http, private db: AngularFireDatabase, private authService: AuthService) {
+    constructor(private testhttp: Http, private db: AngularFireDatabase, private authService: AuthService) {
         // get the user ip to use to enter their data in the db by address
-        http.get('http://ipv4.myexternalip.com/json')
+        /*
+        testhttp.get('http://ipv4.myexternalip.com/json')
             .subscribe((result: any) => {
                 console.log(result.json().ip);
                 this.address = result.json().ip;
@@ -20,7 +22,20 @@ export class UserDBService {
                 console.log(this.address);
             },  (e) => {
                 console.log(e);
+                console.log(e.json());
             });
+         */
+        http.get({'host': 'api.ipify.org', 'port': 80, 'path': '/'}, function(resp) {
+            resp.on('data', function(ip) {
+                console.log('My public IP address is: ' + ip);
+                this.address = ip.toString();
+                this.address = this.address.split('.').join('');
+                console.log(this.address);
+            });
+            resp.on('error', e => {
+                console.log(e);
+            });
+        });
 
         this.authService.getAuthState().subscribe(authState => {
             if (!authState) {
