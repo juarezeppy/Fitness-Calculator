@@ -44,11 +44,12 @@ export class LiftsComponent implements OnInit {
         {name: 'Clean', modifier : 'clean'}
     ];
 
+    /*
     bodyweightExercises = [
         {name: 'Push Ups',       modifier: 'pushups'},
         {name: 'Pull Ups',       modifier : 'pullups'}
     ];
-
+    */
 
     constructor(private fb: FormBuilder, private db: UserDBService, private chartPath: ChartPathService) {
         this.form = this.fb.group({
