@@ -46,6 +46,7 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
 // Firebase Config
 import {firebaseConfig} from '../firebaseConfig';
 import {AuthGuardService} from './services/auth-guard.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
     imports:        [
@@ -55,6 +56,7 @@ import {AuthGuardService} from './services/auth-guard.service';
         AngularFireDatabaseModule,
         AngularFireAuthModule,
         HttpModule,
+        HttpClientModule,
         AppRoutingModule,
         ReactiveFormsModule,
         BrowserModule,

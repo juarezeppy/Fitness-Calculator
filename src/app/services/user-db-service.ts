@@ -1,9 +1,7 @@
 import { Injectable }           from '@angular/core';
-
 import {AngularFireDatabase}    from 'angularfire2/database';
 import {AuthService}            from './auth.service';
-import {AngularFireAuth}        from 'angularfire2/auth';
-import {Http}                   from '@angular/http';
+import {HttpClient}             from '@angular/common/http';
 
 // This service handles the hud / GUI components for user workout pages
 // AND loading their information from the DB in general
@@ -12,13 +10,13 @@ export class UserDBService {
     private userID:     string;
     private address:    string;
 
-    constructor(private http: Http, private af: AngularFireAuth, private db: AngularFireDatabase, private authService: AuthService) {
-        const json = 'http://ipv4.myexternalip.com/json';
+    constructor(private http: HttpClient, private db: AngularFireDatabase, private authService: AuthService) {
+        const json = '/http://ipv4.myexternalip.com/json';
         // get the user ip to use to enter their data in the db by address
         http.get(json)
-            .subscribe((result) => {
-                console.log(result.json().ip);
-                this.address = result.json().ip;
+            .subscribe((result: any) => {
+                console.log(result.ip);
+                this.address = result.ip;
                 this.address = this.address.split('.').join('');
             },  (e) => {
                 console.log(e);
