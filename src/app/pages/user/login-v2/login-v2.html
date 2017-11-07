@@ -49,20 +49,15 @@
                 </div>
             </div>
 
-            <!--
-            <div class="checkbox m-b-20">
-                <label>
-                    <input type="checkbox" /> Remember Me
-                </label>
-            </div>
-            !-->
+            <button
+                    class="btn btn-primary btn-block btn-lg"
+                    [disabled]="!form.valid">Login
+            </button>
 
-            <div class="login-buttons">
-                <button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>
-                <button class="btn btn-block btn-lg btn-social btn-facebook" (click)="fbLogin()">
-                    <span class="fa fa-facebook"></span> Sign In With Facebook
-                </button>
-            </div>
+            <button class="btn btn-block btn-lg btn-social btn-facebook m-t-5 f-s-13" (click)="fbLogin()">
+                <span class="fa fa-facebook"></span> Sign Up With Facebook
+            </button>
+
             <div class="m-t-20">
                 Not a member yet? Click <a routerLink="/register">here</a> to register.
             </div>
