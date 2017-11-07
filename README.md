@@ -1,6 +1,6 @@
 # Project Overview
 
-**DEMO: https://firstproject-65ff8.firebaseapp.com/**
+**DEMO: http://fitness-calculator-demo.s3-website-us-west-2.amazonaws.com**
 
 Buddy Up is a health and fitness calculator feature. Users can login to view their fitness dashboard (in progress) or simply toggle though the calculators and enter their data and calculate their bmi, bmr, tdee, or 1 rep max for a set of excercies. Their results are displayed in text boxes AND in a histogram chart against other user data in the database.
 
