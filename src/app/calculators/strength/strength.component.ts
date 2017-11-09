@@ -36,7 +36,7 @@ export class StrengthComponent implements OnInit {
     this.mean         = Math.round($event.mean).toString();
     this.iterations   = $event.iterations;
 
-    setTimeout(() => { // <-- temporary fix to deal with chart resizing on live data LEARN RXJS TO DO AWAY WITH THIS
+    setTimeout(() => { // <-- temporary fix to deal with chart resizing on live data
         this.showGraph = true;
         console.log($event);
       }

@@ -18,6 +18,7 @@ export class HistogramChartComponent implements OnInit {
     @Input() isStrength: boolean;
     @Input() userFormValue: number;
 
+    // Used as a flag to stop rending the users column bar color.
     setUserBar: boolean;
 
     theme = 'dark';
@@ -53,15 +54,18 @@ export class HistogramChartComponent implements OnInit {
         this.setUserBar = false;
     }
 
+    /**
+     * OnInit handles getting the correct chart data from the path service
+     * and then uses conditional statements to render the histogram column
+     * colors according to the users relative value.
+     * This is a workaround to the NGX D3 library used
+     * That does not easily allow custom "real-time" color rendering upon instantiation.
+     * */
     ngOnInit() {
-        // CREATE VARIABLE TO PASS TO RETURN LIST THAT RETURNS THE CORRECT CHART DATA
         this.chartPathService.currentMessage.subscribe( path => {
-            console.log(path);
-            this.userDB.returnChartData(path, this.isStrength).subscribe(snapshot => {   // <--- snapshot contains the object from the database
+            this.userDB.returnChartData(path, this.isStrength).subscribe(snapshot => {
                 let name, entry, suffix, value;
-                const endValue: number = chartUtilities.getEndValue(this.gender, this.formType);  // <!-- end value needs to be determined by lift choice
-
-                console.log(snapshot);
+                const endValue: number = chartUtilities.getEndValue(this.gender, this.formType);
 
                 if (this.isStrength) {
                     suffix = parseInt(snapshot[1].$key, 10) * 10;
@@ -283,7 +287,7 @@ export class HistogramChartComponent implements OnInit {
                 this.chartName = this.chartName.replace(re, '$& ');
             });
 
-            this.chartPathService.messageSource.complete(); // <--completes chart data stream to prevent leak
+            this.chartPathService.messageSource.unsubscribe();
         });
     }
 

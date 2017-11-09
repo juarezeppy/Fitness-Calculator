@@ -3,7 +3,6 @@ import {Router} from '@angular/router';
 import {UserDBService} from '../../../services/user-db-service';
 import {AuthService} from '../../../services/auth.service';
 import {User} from '../../user/user';
-import { Workout } from '../../../utilities/workout';
 import { WorkOutGen } from '../../../utilities/workoutGen';
 
 
@@ -22,11 +21,10 @@ export class V3BUComponent implements OnInit {
     constructor(private authService: AuthService, private physicalStats: UserDBService, private router: Router) {
         this.user = new User();
     }
-  ngOnInit() {
+
+    ngOnInit() {
       this.testWorkout = new WorkOutGen;
       this.workout = this.tempWorkouts[0];
-
-      window.dispatchEvent(new CustomEvent('dashboard-v3-ready'));
 
       this.authService.getAuthState().subscribe(authState => {   // <--- af auth object
           if (!authState) {

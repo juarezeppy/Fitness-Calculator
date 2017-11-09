@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {AbstractControl, Form, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {FormValidators}                          from '../../validators/validators';
 import {UserDBService}                           from '../../services/user-db-service';
 import {ChartPathService}                        from '../../services/chart-path.service';
@@ -94,6 +94,7 @@ export class LiftsComponent implements OnInit {
             formLift: 'squat'
         });
 
+        // load default form values
         this.form.patchValue({weightGroup: {formWeightType: 'lbs'}});
     }
 
